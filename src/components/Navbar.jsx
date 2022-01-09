@@ -28,7 +28,7 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Logo>LAMA.</Logo>
+          <Logo>MAMU.</Logo>
         </Center>
 
         <Right>
