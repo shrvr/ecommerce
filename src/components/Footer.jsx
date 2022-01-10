@@ -21,12 +21,13 @@ import {
   ContactItem,
   Payment,
 } from "../styledComponents/Footer.style";
+import MainLogo from "./MainLogo";
 
 const Footer = () => {
   return (
     <Container>
       <Left>
-        <Logo>LAMA.</Logo>
+        <MainLogo />
         <Desc>
           There are many variations of passages of Lorem Ipsum available, but
           the majority have suffered alteration in some form, by injected

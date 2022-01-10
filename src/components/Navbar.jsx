@@ -14,6 +14,7 @@ import {
 import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import MainLogo from "./MainLogo";
 
 const Navbar = () => {
   return (
@@ -28,7 +29,7 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Logo>MAMU.</Logo>
+          <MainLogo />
         </Center>
 
         <Right>
