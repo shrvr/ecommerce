@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { popularProducts } from "../data";
 import Product from "./Product";
 import { Container } from "../styledComponents/Categories.style"; // Here used Container of Category component
