@@ -80,6 +80,6 @@ export const popularProducts = [
   },
   {
     id: 10,
-    img: "https://drive.google.com/uc?id=1thC-GCL5yjh4ezQ9XxaTKcNPtvxKNhh3",
+    img: "1https://drive.google.com/uc?id=thC-GCL5yjh4ezQ9XxaTKcNPtvxKNhh3",
   },
 ];
