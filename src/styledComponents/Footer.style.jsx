@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 export const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 export const Left = styled.div`
   flex: 1;
@@ -31,6 +33,7 @@ export const SocialIcon = styled.div`
 export const Center = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ display: "none" })}
 `;
 
 export const Title = styled.h3`

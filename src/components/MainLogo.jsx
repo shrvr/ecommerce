@@ -1,7 +1,10 @@
 import styled from "styled-components";
+import { mobile } from "../responsive";
+
 const Container = styled.div`
   display: flex;
   font-weight: bold;
+  ${mobile({ fontSize: "9px" })}
 `;
 const Left = styled.h1`
   margin: 0;

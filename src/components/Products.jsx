@@ -4,7 +4,7 @@ import { Container } from "../styledComponents/Categories.style"; // Here used C
 
 const Products = () => {
   return (
-    <Container style={{ flexWrap: "wrap" }}>
+    <Container>
       {popularProducts.map((item) => (
         <Product item={item} key={item.id}></Product>
       ))}

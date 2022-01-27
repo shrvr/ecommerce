@@ -9,8 +9,10 @@ export const FilterContainer = styled.div`
   justify-content: space-between;
 `;
 export const Filter = styled.div`
-  margin: 20px;
+  margin: 19px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 export const FilterText = styled.div`
@@ -21,6 +23,7 @@ export const FilterText = styled.div`
 
 export const Select = styled.select`
   padding: 10px;
-  margin-right: 20px;
+  /* margin-right: 20px; */
+  margin: 10px 5px;
 `;
 export const Option = styled.option``;

@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 export const Container = styled.div`
   flex: 1;
   margin: 3px;
   height: 70vh;
+  min-width: 280px;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  ${mobile({ height: "50vh" })}
 `;
 export const Image = styled.img`
   width: 100%;

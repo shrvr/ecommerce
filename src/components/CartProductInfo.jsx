@@ -4,6 +4,7 @@ import { Add, Remove } from "@material-ui/icons";
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 const ProductDetail = styled.div`

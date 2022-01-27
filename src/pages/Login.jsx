@@ -22,7 +22,7 @@ export const Link = styled.a`
 const Login = () => {
   return (
     <Container>
-      <Wrapper style={{ width: "25%" }}>
+      <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
           <Input placeholder="email" />
