@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import StripeCheckout from "react-stripe-checkout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from "react-router-dom";
 
 const Summary = styled.div`
   flex: 1;
@@ -38,10 +40,25 @@ const CheckoutSummary = ({ cart }) => {
   const KEY = process.env.REACT_APP_STRIPE;
 
   const [stripeToken, setStripeToken] = useState(null);
+  const navigate = useNavigate();
   const onToken = (token) => {
     setStripeToken(token);
   };
-  console.log(stripeToken);
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        const res = await userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id,
+          amount: cart.total * 100,
+        });
+        navigate("/success", { data: res.data });
+      } catch {
+        alert("failed");
+      }
+    };
+    stripeToken && cart.total >= 1 && makeRequest();
+  }, [stripeToken, cart.total, navigate]);
 
   const summaryDetails = [
     { summaryText: "Subtotal", price: cart.total, type: "" },
@@ -67,6 +84,7 @@ const CheckoutSummary = ({ cart }) => {
         description={`Your total is $${cart.total}`}
         amount={cart.total * 100}
         token={onToken}
+        currency="cad"
         stripeKey={KEY}
       >
         <Button>CHECKOUT NOW</Button>

@@ -61,7 +61,6 @@ const ProductPrice = styled.div`
 `;
 
 const CartProductInfo = ({ product }) => {
-  console.log(product);
   return (
     <Product>
       <ProductDetail>

@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import ProductList from "./pages/ProductList";
 import ProductPage from "./pages/ProductPage";
 import Register from "./pages/Register";
+import Success from "./pages/Success";
 
 const App = () => {
   const isLogin = false;
@@ -29,6 +30,7 @@ const App = () => {
           path="/register"
           element={isLogin ? <Navigate replace to="/" /> : <Register />}
         />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Router>
   );

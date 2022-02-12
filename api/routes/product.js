@@ -46,8 +46,6 @@ router.delete("/find/:id", verifyTokenAndAdmin, async (req, res) => {
 router.get("/find/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
-    res.header("Access-Control-Allow-Origin", "*");
-
     res.status(200).json(product);
   } catch (err) {
     res.status(500).json(err);
@@ -72,7 +70,6 @@ router.get("/", async (req, res) => {
     } else {
       products = await Product.find();
     }
-    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);
