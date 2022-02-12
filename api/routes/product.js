@@ -43,9 +43,11 @@ router.delete("/find/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //GET PRODUCT
-router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
+router.get("/find/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
+    res.header("Access-Control-Allow-Origin", "*");
+
     res.status(200).json(product);
   } catch (err) {
     res.status(500).json(err);
@@ -54,7 +56,7 @@ router.get("/find/:id", verifyTokenAndAdmin, async (req, res) => {
 
 //Get All Products
 
-router.get("/", verifyTokenAndAdmin, async (req, res) => {
+router.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
   try {
@@ -70,6 +72,7 @@ router.get("/", verifyTokenAndAdmin, async (req, res) => {
     } else {
       products = await Product.find();
     }
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(200).json(products);
   } catch (err) {
     res.status(500).json(err);

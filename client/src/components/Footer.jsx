@@ -9,7 +9,6 @@ import MailOutline from "@mui/icons-material/EmailOutlined";
 import {
   Container,
   Left,
-  Logo,
   Desc,
   SocialContainer,
   SocialIcon,

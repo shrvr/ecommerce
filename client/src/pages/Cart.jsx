@@ -12,11 +12,13 @@ import {
   TopText,
   Bottom,
   Info,
-  Hr,
 } from "../styledComponents/Cart.style";
 import CheckoutSummary from "../components/CheckoutSummary";
+import { useSelector } from "react-redux";
 
 const Cart = () => {
+  const cart = useSelector((state) => state.cart);
+
   return (
     <Container>
       <Navbar />
@@ -33,12 +35,11 @@ const Cart = () => {
         </Top>
         <Bottom>
           <Info>
-            <CartProductInfo />
-            <Hr />
-            <CartProductInfo />
-            <Hr />
+            {cart.products?.map((product) => (
+              <CartProductInfo product={product} key={product._id} />
+            ))}
           </Info>
-          <CheckoutSummary />
+          <CheckoutSummary cart={cart} />
         </Bottom>
       </Wrapper>
       <Footer />

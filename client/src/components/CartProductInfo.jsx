@@ -60,39 +60,32 @@ const ProductPrice = styled.div`
   font-weight: 200;
 `;
 
-const CartProductInfo = (props) => {
-  const productDetails = {
-    imgLink: "https://drive.google.com/uc?id=1thC-GCL5yjh4ezQ9XxaTKcNPtvxKNhh3",
-    name: "JESSIE THUNDER SHOES",
-    pid: "93813718293",
-    size: "37.5",
-    qty: "2",
-    price: "30",
-  };
+const CartProductInfo = ({ product }) => {
+  console.log(product);
   return (
     <Product>
       <ProductDetail>
-        <Image src={productDetails.imgLink} />
+        <Image src={product.img} />
         <Details>
           <ProductName>
-            <b>Product:</b> {productDetails.name}
+            <b>Product:</b> {product.title}
           </ProductName>
           <ProductId>
-            <b>ID:</b> {productDetails.pid}
+            <b>ID:</b> {product._id}
           </ProductId>
-          <ProductColor color="black" />
+          <ProductColor color={product.color} />
           <ProductSize>
-            <b>Size:</b> {productDetails.size}
+            <b>Size:</b> {product.size}
           </ProductSize>
         </Details>
       </ProductDetail>
       <PriceDetail>
         <ProductAmountContainer>
           <Add />
-          <ProductAmount>{productDetails.qty}</ProductAmount>
+          <ProductAmount>{product.qty}</ProductAmount>
           <Remove />
         </ProductAmountContainer>
-        <ProductPrice>$ {productDetails.price}</ProductPrice>
+        <ProductPrice>$ {product.price}</ProductPrice>
       </PriceDetail>
     </Product>
   );

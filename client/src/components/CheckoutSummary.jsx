@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import StripeCheckout from "react-stripe-checkout";
+import { useState } from "react";
+
 const Summary = styled.div`
   flex: 1;
   border: 0.5px solid lightgray;
@@ -31,22 +34,43 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const CheckoutSummary = () => {
+const CheckoutSummary = ({ cart }) => {
+  const KEY = process.env.REACT_APP_STRIPE;
+
+  const [stripeToken, setStripeToken] = useState(null);
+  const onToken = (token) => {
+    setStripeToken(token);
+  };
+  console.log(stripeToken);
+
   const summaryDetails = [
-    { summaryText: "Subtotal", price: "$ 80" },
-    { summaryText: "Estimated Shipping", price: "$ 5.90" },
-    { summaryText: "Shipping Discount", price: "$ -5.90" },
+    { summaryText: "Subtotal", price: cart.total, type: "" },
+    { summaryText: "Estimated Shipping", price: "$ 5.90", type: "" },
+    { summaryText: "Shipping Discount", price: "$ -5.90", type: "" },
+    { summaryText: "Total", price: cart.total, type: "total" },
   ];
   return (
     <Summary>
       <SummaryTitle>ORDER SUMMARY</SummaryTitle>
       {summaryDetails.map((item) => (
-        <SummaryItem>
+        <SummaryItem type={item.type} key={item.summaryText}>
           <SummaryItemText>{item.summaryText}</SummaryItemText>
-          <SummaryItemPrice>{item.price}</SummaryItemPrice>
+          <SummaryItemPrice> $ {item.price}</SummaryItemPrice>
         </SummaryItem>
       ))}
-      <Button>CHECKOUT NOW</Button>
+
+      <StripeCheckout
+        name="Fashion_Point"
+        image="https://drive.google.com/uc?id=15E-DQg1cQVRA-jDsOnisJ_sPde0xB98s"
+        billingAddress
+        shippingAddress
+        description={`Your total is $${cart.total}`}
+        amount={cart.total * 100}
+        token={onToken}
+        stripeKey={KEY}
+      >
+        <Button>CHECKOUT NOW</Button>
+      </StripeCheckout>
     </Summary>
   );
 };

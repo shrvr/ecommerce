@@ -8,6 +8,7 @@ import {
   Info,
   Icon,
 } from "../styledComponents/Product.style";
+import { Link } from "react-router-dom";
 
 const Product = ({ item }) => {
   return (
@@ -19,7 +20,9 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </Icon>
         <Icon>
-          <SearchOutlinedIcon />
+          <Link to={`product/${item._id}`}>
+            <SearchOutlinedIcon />
+          </Link>
         </Icon>
         <Icon>
           <FavoriteBorderOutlinedIcon />
