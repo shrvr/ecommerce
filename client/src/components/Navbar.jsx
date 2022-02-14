@@ -14,12 +14,16 @@ import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MainLogo from "./MainLogo";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import NewLink from "./NewLink";
+import { logout } from "../redux/userRedux";
 
 const Navbar = () => {
   const quantity = useSelector((state) => state.cart.quantity);
-
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logout());
+  };
   return (
     <Container>
       <Wrapper>
@@ -32,21 +36,21 @@ const Navbar = () => {
         </Left>
 
         <Center>
-          <Link to="/">
+          <NewLink to="/">
             <MainLogo />
-          </Link>
+          </NewLink>
         </Center>
 
         <Right>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>LOGIN</MenuItem>
-          <Link to="/cart">
+          <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
+          <MenuItem>WISHLIST</MenuItem>
+          <NewLink to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </MenuItem>
-          </Link>
+          </NewLink>
         </Right>
       </Wrapper>
     </Container>

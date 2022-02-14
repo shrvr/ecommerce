@@ -15,6 +15,8 @@ import {
 } from "../styledComponents/Cart.style";
 import CheckoutSummary from "../components/CheckoutSummary";
 import { useSelector } from "react-redux";
+import NewLink from "../components/NewLink";
+import CheckoutButton from "../components/CheckoutButton";
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart);
@@ -26,12 +28,14 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <NewLink to="/">
+            <TopButton>CONTINUE SHOPPING</TopButton>
+          </NewLink>
           <TopTexts>
             <TopText>Shopping Bag(2)</TopText>
             <TopText>Your Wishlist (0)</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          <CheckoutButton />
         </Top>
         <Bottom>
           <Info>
@@ -39,7 +43,7 @@ const Cart = () => {
               <CartProductInfo product={product} key={product._id} />
             ))}
           </Info>
-          <CheckoutSummary cart={cart} />
+          <CheckoutSummary />
         </Bottom>
       </Wrapper>
       <Footer />

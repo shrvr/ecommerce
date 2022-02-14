@@ -60,33 +60,41 @@ const ProductPrice = styled.div`
   font-weight: 200;
 `;
 
+export const Hr = styled.hr`
+  background-color: #eee;
+  border: none;
+  height: 1px;
+`;
 const CartProductInfo = ({ product }) => {
   return (
-    <Product>
-      <ProductDetail>
-        <Image src={product.img} />
-        <Details>
-          <ProductName>
-            <b>Product:</b> {product.title}
-          </ProductName>
-          <ProductId>
-            <b>ID:</b> {product._id}
-          </ProductId>
-          <ProductColor color={product.color} />
-          <ProductSize>
-            <b>Size:</b> {product.size}
-          </ProductSize>
-        </Details>
-      </ProductDetail>
-      <PriceDetail>
-        <ProductAmountContainer>
-          <Add />
-          <ProductAmount>{product.qty}</ProductAmount>
-          <Remove />
-        </ProductAmountContainer>
-        <ProductPrice>$ {product.price}</ProductPrice>
-      </PriceDetail>
-    </Product>
+    <div>
+      <Product>
+        <ProductDetail>
+          <Image src={product.img} />
+          <Details>
+            <ProductName>
+              <b>Product:</b> {product.title}
+            </ProductName>
+            <ProductId>
+              <b>ID:</b> {product._id}
+            </ProductId>
+            <ProductColor color={product.color} />
+            <ProductSize>
+              <b>Size:</b> {product.size}
+            </ProductSize>
+          </Details>
+        </ProductDetail>
+        <PriceDetail>
+          <ProductAmountContainer>
+            <Add />
+            <ProductAmount>{product.qty}</ProductAmount>
+            <Remove />
+          </ProductAmountContainer>
+          <ProductPrice>$ {product.price}</ProductPrice>
+        </PriceDetail>
+      </Product>
+      <Hr />
+    </div>
   );
 };
 

@@ -28,9 +28,13 @@ const Footer = () => {
       <Left>
         <MainLogo />
         <Desc>
-          There are many variations of passages of Lorem Ipsum available, but
-          the majority have suffered alteration in some form, by injected
-          humour, or randomised words which don’t look even slightly believable.
+          You've come to the right site if you're looking for online shopping
+          for men and women. FashionPoint is the ideal fashion and lifestyle
+          destination, offering a wide range of products such as apparel,
+          footwear, accessories, jewellery, personal care products, and more.
+          With our vast collection of current things, it's time to alter your
+          style statement. FashionPoint allows you to buy from the comfort of
+          your own home and have your favourite items delivered to your door.
         </Desc>
         <SocialContainer>
           <SocialIcon bg="3B5999">
@@ -68,15 +72,15 @@ const Footer = () => {
         <Title>Contact</Title>
         <ContactItem>
           <Room style={{ marginRight: "10px" }} />
-          622 Dixie Path , South Tobinchester 98336
+          Windsor, Ontario, Canada
         </ContactItem>
         <ContactItem>
           <Phone style={{ marginRight: "10px" }} />
-          +1 234 56 78
+          +1 519-996-1234
         </ContactItem>
         <ContactItem>
           <MailOutline style={{ marginRight: "10px" }} />
-          contact@lama.dev
+          shrvr@yahoo.com
         </ContactItem>
         <Payment src="https://drive.google.com/uc?id=1I3tI9PECuXGJW5APa_IupItMZ1GMBX8x" />
       </Right>

@@ -8,6 +8,7 @@ const Container = styled.div`
 `;
 const Left = styled.h1`
   margin: 0;
+  color: black;
 `;
 const Right = styled.h1`
   color: #8b324d;
