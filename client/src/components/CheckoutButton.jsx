@@ -47,7 +47,7 @@ const CheckoutButton = () => {
       description={`Your total is $${cart.total}`}
       amount={cart.total * 100}
       token={onToken}
-      currency="cad"
+      currency="CAD"
       stripeKey={process.env.REACT_APP_STRIPE}
     >
       <Button>CHECKOUT NOW</Button>

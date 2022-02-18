@@ -14,12 +14,26 @@ import {
   Info,
 } from "../styledComponents/Cart.style";
 import CheckoutSummary from "../components/CheckoutSummary";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NewLink from "../components/NewLink";
 import CheckoutButton from "../components/CheckoutButton";
+import { useEffect, useRef } from "react";
+import { updateCart } from "../redux/apiCalls";
 
 const Cart = () => {
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
+  const isMounted = useRef(false);
+  const userId = useSelector((state) => state.user.currentUser._id);
+  const TOKEN = useSelector((state) => state.user.currentUser.accessToken);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      updateCart(dispatch, cart, TOKEN, userId);
+    } else {
+      isMounted.current = true;
+    }
+  }, [cart.products.length]);
 
   return (
     <Container>

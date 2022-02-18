@@ -14,6 +14,7 @@ import {
 import ArrowLeftOutlinedIcon from "@mui/icons-material/ArrowLeftOutlined";
 import ArrowRightOutlinedIcon from "@mui/icons-material/ArrowRightOutlined";
 import { sliderItems } from "../data";
+import NewLink from "./NewLink";
 
 const Slider = () => {
   const [slideIndex, setslideIndex] = useState(0);
@@ -38,7 +39,9 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOP NOW</Button>
+              <NewLink to="/products/">
+                <Button>SHOP NOW</Button>
+              </NewLink>
             </InfoContainer>
           </Slide>
         ))}

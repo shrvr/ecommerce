@@ -35,7 +35,6 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Delete
-
 router.delete("/find/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);

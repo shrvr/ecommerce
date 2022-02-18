@@ -1,11 +1,12 @@
 import { Add, Remove } from "@mui/icons-material";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
+import { updateCart } from "../redux/apiCalls";
 import { addProduct } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
 import {
@@ -34,7 +35,7 @@ const ProductPage = () => {
   const id = location.pathname.split("/")[2];
 
   const [product, setProduct] = useState({});
-  const [qty, setQty] = useState(1);
+  const [quantity, setQty] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
 
@@ -51,10 +52,34 @@ const ProductPage = () => {
     };
     getProduct();
   }, [id]);
+  //connts required to update cart
+  const userId = useSelector((state) => state.user.currentUser._id);
+  const TOKEN = useSelector((state) => state.user.currentUser.accessToken);
+  const updatedReduxCart = useSelector((state) => state.cart);
+  const [isUpdated, setIsUpdated] = useState(false);
+  const isMounted = useRef(false);
+  function handleClick() {
+    dispatch(
+      addProduct({
+        productId: product._id,
+        title: product.title,
+        img: product.img,
+        price: product.price,
+        quantity,
+        color,
+        size,
+      })
+    );
+    setIsUpdated(!isUpdated);
+  }
 
-  const handleClick = () => {
-    dispatch(addProduct({ ...product, qty, color, size }));
-  };
+  useEffect(() => {
+    if (isMounted.current) {
+      updateCart(dispatch, updatedReduxCart, TOKEN, userId);
+    } else {
+      isMounted.current = true;
+    }
+  }, [isUpdated]);
 
   return (
     <Container>
@@ -89,13 +114,13 @@ const ProductPage = () => {
             <AmountContainer>
               <Remove
                 onClick={() => {
-                  qty > 1 && setQty(qty - 1);
+                  quantity > 1 && setQty(quantity - 1);
                 }}
               />
-              <Amount>{qty}</Amount>
+              <Amount>{quantity}</Amount>
               <Add
                 onClick={() => {
-                  setQty(qty + 1);
+                  setQty(quantity + 1);
                 }}
               />
             </AmountContainer>

@@ -17,13 +17,27 @@ import MainLogo from "./MainLogo";
 import { useDispatch, useSelector } from "react-redux";
 import NewLink from "./NewLink";
 import { logout } from "../redux/userRedux";
+import { getCart } from "../redux/apiCalls";
+import { useEffect } from "react";
+import { logoutCart } from "../redux/cartRedux";
 
 const Navbar = () => {
-  const quantity = useSelector((state) => state.cart.quantity);
+  const quantity = useSelector((state) => state.cart.totalQuantity);
+  const userId = useSelector((state) => state.user.currentUser._id);
+  const TOKEN = useSelector((state) => state.user.currentUser.accessToken);
+  const firstName = useSelector((state) => state.user.currentUser.first_name);
+
   const dispatch = useDispatch();
   const handleLogout = () => {
+    localStorage.removeItem("persist:root");
+    dispatch(logoutCart());
     dispatch(logout());
   };
+
+  useEffect(() => {
+    getCart(dispatch, TOKEN, userId);
+  }, []);
+
   return (
     <Container>
       <Wrapper>
@@ -42,6 +56,7 @@ const Navbar = () => {
         </Center>
 
         <Right>
+          <MenuItem>WELCOME, {firstName.toUpperCase()}</MenuItem>
           <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
           <MenuItem>WISHLIST</MenuItem>
           <NewLink to="/cart">

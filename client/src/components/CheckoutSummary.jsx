@@ -31,8 +31,8 @@ const CheckoutSummary = () => {
 
   const summaryDetails = [
     { summaryText: "Subtotal", price: cart.total, type: "" },
-    { summaryText: "Estimated Shipping", price: "$ 5.90", type: "" },
-    { summaryText: "Shipping Discount", price: "$ -5.90", type: "" },
+    { summaryText: "Estimated Shipping", price: "5.90", type: "" },
+    { summaryText: "Shipping Discount", price: "-5.90", type: "" },
     { summaryText: "Total", price: cart.total, type: "total" },
   ];
   return (

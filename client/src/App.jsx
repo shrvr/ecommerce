@@ -17,7 +17,6 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
   return (
     <Router>
       <ScrollToTop>
@@ -28,6 +27,10 @@ const App = () => {
           />
           <Route
             path="/products/:category"
+            element={user ? <ProductList /> : <Navigate replace to="/login" />}
+          />
+          <Route
+            path="/products/"
             element={user ? <ProductList /> : <Navigate replace to="/login" />}
           />
           <Route

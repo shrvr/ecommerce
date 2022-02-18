@@ -10,10 +10,11 @@ import {
   Agreement,
   Button,
 } from "../styledComponents/Register.style";
-import { Link } from "./Login";
+import { Error, Link } from "./Login";
 import NewLink from "../components/NewLink";
 const Register = () => {
   const [isRegistered, setIsRegistered] = useState(false);
+  const [isError, setIsError] = useState(null);
   const [credentials, SetCredentials] = useState({
     first_name: "",
     last_name: "",
@@ -23,17 +24,37 @@ const Register = () => {
     confirm_password: "",
   });
 
+  // validation
+  const isValid = () => {
+    if (credentials.first_name === "") setIsError("Please Enter Firstname ");
+    else if (credentials.username === "") setIsError("Please Enter username");
+    else if (credentials.last_name === "") setIsError("Please Enter Lastname ");
+    else if (credentials.email === "") setIsError("Please Enter email ");
+    else if (credentials.password === "") setIsError("Please Enter Password");
+    else if (credentials.confirm_password === "")
+      setIsError("Please Enter Confirm Password");
+    else if (credentials.password !== credentials.confirm_password)
+      setIsError("Password does not match");
+    else setIsError(false);
+  };
+
+  //handle changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     SetCredentials({ ...credentials, [name]: value });
   };
+
+  // onclick create button
   const handleClick = async (e) => {
     e.preventDefault();
-    try {
-      const res = await publicRequest.post("/auth/register", credentials);
-      setIsRegistered(true);
-    } catch (err) {
-      console.log("Something went wrong");
+    isValid();
+    if (!isError) {
+      try {
+        await publicRequest.post("/auth/register", credentials);
+        setIsRegistered(true);
+      } catch (err) {
+        console.log("Something went wrong");
+      }
     }
   };
 
@@ -42,7 +63,6 @@ const Register = () => {
     <Container>
       <Wrapper>
         <Title>CREATE AN ACCOUNT</Title>
-        {credentials.first_name}
         <Form>
           <Input
             name="first_name"
@@ -77,10 +97,12 @@ const Register = () => {
             type="password"
             onChange={handleChange}
           />
+          <Error>{isError}</Error>
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data in accordance with the <b>PRIVACY POLICY</b>
           </Agreement>
+
           <Button onClick={handleClick}>CREATE</Button>
           <NewLink to="/login">
             <Link>ALREADY HAVE AN ACCOUNT ? PLEASE LOGIN</Link>
