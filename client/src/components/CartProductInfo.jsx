@@ -125,9 +125,6 @@ const CartProductInfo = ({ product }) => {
             <ProductName>
               <b>Product:</b> {product.title}
             </ProductName>
-            <ProductId>
-              <b>ID:</b> {product._id}
-            </ProductId>
             <ProductColor color={product.color} />
             <ProductSize>
               <b>Size:</b> {product.size}

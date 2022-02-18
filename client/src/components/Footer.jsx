@@ -30,10 +30,8 @@ const Footer = () => {
           You've come to the right site if you're looking for online shopping
           for men and women. FashionPoint is the ideal fashion and lifestyle
           destination, offering a wide range of products such as apparel,
-          footwear, accessories, jewellery, personal care products, and more.
-          With our vast collection of current things, it's time to alter your
-          style statement. FashionPoint allows you to buy from the comfort of
-          your own home and have your favourite items delivered to your door.
+          footwear and accessories. With our vast collection of current things,
+          it's time to alter your style statement.
         </Desc>
         <SocialContainer>
           <SocialIcon bg="3B5999">
@@ -58,10 +56,8 @@ const Footer = () => {
           <ListItem>Cart</ListItem>
           <ListItem>Man Fashion</ListItem>
           <ListItem>Woman Fashion</ListItem>
-          <ListItem>Accessories</ListItem>
           <ListItem>My Account</ListItem>
           <ListItem>Order Tracking</ListItem>
-          <ListItem>Wishlist</ListItem>
           <ListItem>Wishlist</ListItem>
           <ListItem>Terms</ListItem>
         </List>
