@@ -13,7 +13,7 @@ export const Left = styled.div`
 `;
 
 export const Desc = styled.p`
-  margin: 10px 0px;
+  margin: 20px 0px;
   text-align: justify;
 `;
 export const SocialContainer = styled.div`

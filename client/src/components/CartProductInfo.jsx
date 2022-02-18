@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteItem, incrDecrQuantity } from "../redux/cartRedux";
 import { useEffect, useRef, useState } from "react";
 import { updateCart } from "../redux/apiCalls";
+import NewLink from "./NewLink";
 
 const Product = styled.div`
   display: flex;
@@ -77,6 +78,7 @@ const CartProductInfo = ({ product }) => {
   const [isUpdated, setIsUpdated] = useState(false);
 
   const dispatch = useDispatch();
+
   const findIndex = (productArray) => {
     for (var i = 0, l = productArray.length; i < l; i++) {
       if (productArray[i]._id === product._id) {
@@ -120,7 +122,9 @@ const CartProductInfo = ({ product }) => {
     <div>
       <Product>
         <ProductDetail>
-          <Image src={product.img} />
+          <NewLink to={`/product/${product.productId}`}>
+            <Image src={product.img} />
+          </NewLink>
           <Details>
             <ProductName>
               <b>Product:</b> {product.title}

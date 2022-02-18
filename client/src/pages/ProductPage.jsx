@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Newsletter from "../components/Newsletter";
 import { updateCart } from "../redux/apiCalls";
-import { addProduct } from "../redux/cartRedux";
+import { addProduct, incrDecrQuantity } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
 import {
   Container,
@@ -52,25 +52,51 @@ const ProductPage = () => {
     };
     getProduct();
   }, [id]);
+
   //connts required to update cart
   const userId = useSelector((state) => state.user.currentUser._id);
   const TOKEN = useSelector((state) => state.user.currentUser.accessToken);
   const updatedReduxCart = useSelector((state) => state.cart);
   const [isUpdated, setIsUpdated] = useState(false);
   const isMounted = useRef(false);
+
+  const cartProductArray = useSelector((state) => state.cart.products);
+
   function handleClick() {
-    dispatch(
-      addProduct({
-        productId: product._id,
-        title: product.title,
-        img: product.img,
-        price: product.price,
-        quantity,
-        color,
-        size,
-      })
-    );
-    setIsUpdated(!isUpdated);
+    //check if product with same color and size already exist in cart
+    // if yes then add the quantity to that product
+    let isProductExist = false;
+    let i = null;
+    for (var index = 0, l = cartProductArray.length; index < l; index++) {
+      if (cartProductArray[index].productId === product._id) {
+        if (
+          cartProductArray[index].color === color &&
+          cartProductArray[index].size === size
+        )
+          isProductExist = true;
+        i = index;
+      }
+    }
+    //update redux
+    if (isProductExist) {
+      let diff = quantity;
+      console.log("product exist");
+      dispatch(incrDecrQuantity({ i, diff }));
+      setIsUpdated(!isUpdated);
+    } else {
+      dispatch(
+        addProduct({
+          productId: product._id,
+          title: product.title,
+          img: product.img,
+          price: product.price,
+          quantity,
+          color,
+          size,
+        })
+      );
+      setIsUpdated(!isUpdated);
+    }
   }
 
   useEffect(() => {
