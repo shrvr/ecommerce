@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const BASE_URL = "https://fashion-point.herokuapp.com/api/";
-// const BASE_URL = "http://192.168.2.59:5001/api/";
+// export const BASE_URL = "http://localhost:5001/api/";
 let TOKEN;
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
