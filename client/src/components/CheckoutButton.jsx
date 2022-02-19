@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import StripeCheckout from "react-stripe-checkout";
 import styled from "styled-components";
-import { userRequest } from "../requestMethods";
+import { publicRequest } from "../requestMethods";
 
 const Button = styled.button`
   width: 100%;
@@ -26,7 +26,7 @@ const CheckoutButton = () => {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await userRequest.post("/checkout/payment", {
+        const res = await publicRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
           amount: cart.total * 100,
         });
