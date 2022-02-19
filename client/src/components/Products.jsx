@@ -2,6 +2,7 @@ import axios from "axios";
 import Product from "./Product";
 import { Container } from "../styledComponents/Categories.style"; // Here used Container of Category component
 import { useEffect, useState } from "react";
+import { BASE_URL } from "../requestMethods";
 
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
@@ -12,8 +13,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `http://localhost:5001/api/products/?category=${cat}`
-            : `http://localhost:5001/api/products/`
+            ? `${BASE_URL}/products/?category=${cat}`
+            : `${BASE_URL}/products/`
         );
         setProducts(res.data);
       } catch (err) {
