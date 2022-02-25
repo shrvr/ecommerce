@@ -39,7 +39,8 @@ export const Circle = styled.div`
   position: absolute;
 `;
 export const Image = styled.img`
-  height: 70%;
+  height: 100%;
+  width: auto;
   z-index: 2;
 `;
 

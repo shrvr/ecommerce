@@ -1,6 +1,7 @@
 import newUserReq, { publicRequest } from "../requestMethods";
 import { loginFailure, loginStart, loginSuccess } from "./userRedux";
 import { fetchCart } from "./cartRedux";
+import { toast } from "react-toastify";
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());

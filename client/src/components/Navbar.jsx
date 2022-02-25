@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   Wrapper,
@@ -39,13 +39,21 @@ const Navbar = () => {
     getCart(dispatch, TOKEN, userId);
   }, []);
 
+  const [searchedItem, setSearchedItem] = useState("");
+
   return (
     <Container>
       <Wrapper>
         <Left>
           <SearchContainer>
-            <Input placeholder="Search" />
-            <SearchIcon style={{ color: "gray", fontSize: 16 }} />
+            <Input
+              value={searchedItem}
+              onChange={(e) => setSearchedItem(e.target.value)}
+              placeholder="Search"
+            />
+            <NewLink to={`/products/${searchedItem}`}>
+              <SearchIcon style={{ color: "gray", fontSize: 16 }} />
+            </NewLink>
           </SearchContainer>
         </Left>
 
