@@ -9,6 +9,7 @@ import Newsletter from "../components/Newsletter";
 import { updateCart } from "../redux/apiCalls";
 import { addProduct, incrDecrQuantity } from "../redux/cartRedux";
 import { publicRequest } from "../requestMethods";
+import { toast, ToastContainer } from "react-toastify";
 import {
   Container,
   Wrapper,
@@ -102,6 +103,15 @@ const ProductPage = () => {
   useEffect(() => {
     if (isMounted.current) {
       updateCart(dispatch, updatedReduxCart, TOKEN, userId);
+      toast.success("Cart Updated Successfully", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } else {
       isMounted.current = true;
     }
@@ -151,6 +161,15 @@ const ProductPage = () => {
               />
             </AmountContainer>
             <Button onClick={handleClick}>ADD TO CART</Button>
+            <ToastContainer
+              position="top-right"
+              autoClose={1000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              draggable
+            />
           </AddContainer>
         </InfoContainer>
       </Wrapper>

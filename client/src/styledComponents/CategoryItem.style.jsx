@@ -10,11 +10,13 @@ export const Container = styled.div`
   justify-content: center;
   position: relative;
   ${mobile({ height: "50vh" })}
+  background-color: rgb(121,121,121);
 `;
 export const Image = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.8;
 `;
 export const Info = styled.div`
   position: absolute;

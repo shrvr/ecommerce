@@ -22,20 +22,20 @@ export const sliderItems = [
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
-    cat: "women",
+    img: "https://drive.google.com/uc?id=1q2gF-Epjl36WrqsrVFFSWlwYbEL-yPvu",
+    title: "FLORAL DRESSES",
+    cat: "dresses",
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-    cat: "coat",
+    img: "https://drive.google.com/uc?id=1exKA9WwtHt9t8CWd43xMXAAdKDNh5b__",
+    title: "SHIRT STYLES",
+    cat: "shirts",
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
+    img: "https://drive.google.com/uc?id=1HcIrKeAsNf1qR3Oda6cEojP88Acpv6j8",
+    title: "STYLISH JEANS",
     cat: "jeans",
   },
 ];
