@@ -4,12 +4,17 @@ import { login } from "../redux/apiCalls";
 import styled from "styled-components";
 import {
   Container,
-  Wrapper,
   Title,
   Input,
   Button,
+  WrapperRight,
+  Wrapper,
+  WrapperLeft,
+  FormWrapper,
+  LogoWrapper,
 } from "../styledComponents/Register.style";
 import NewLink from "../components/NewLink";
+import MainLogo from "../components/MainLogo";
 
 export const Form = styled.form`
   display: flex;
@@ -40,27 +45,35 @@ const Login = () => {
 
   return (
     <Container>
+      <LogoWrapper>
+        <MainLogo></MainLogo>
+      </LogoWrapper>
       <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input
-            placeholder="email"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Input
-            placeholder="password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          {error && <Error>Something went wrong !!</Error>}
-          <Button onClick={handleClick} disabled={isFetching}>
-            LOGIN
-          </Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <NewLink to="/register">
-            <Link>CREATE A NEW ACCOUNT</Link>
-          </NewLink>
-        </Form>
+        <WrapperLeft></WrapperLeft>
+        <WrapperRight>
+          <FormWrapper>
+            <Title>SIGN IN</Title>
+            <Form>
+              <Input
+                placeholder="username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <Input
+                placeholder="password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              {error && <Error>Something went wrong !!</Error>}
+              <Button onClick={handleClick} disabled={isFetching}>
+                LOGIN
+              </Button>
+              <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+              <NewLink to="/register">
+                <Link>CREATE A NEW ACCOUNT</Link>
+              </NewLink>
+            </Form>
+          </FormWrapper>
+        </WrapperRight>
       </Wrapper>
     </Container>
   );

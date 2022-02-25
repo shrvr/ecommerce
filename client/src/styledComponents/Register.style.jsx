@@ -1,27 +1,49 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { loginImage } from "../data";
 
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("https://drive.google.com/uc?id=12pbWxx9OrvvXPtnUS1JhVr97lKwwI9Lf")
-      center;
+  background: url(${loginImage}) center;
   background-size: cover;
-  display: flex;
+`;
+
+export const LogoWrapper = styled.div`
+  background-color: transparent;
+  padding-top: 10px;
   align-items: center;
+  display: flex;
   justify-content: center;
 `;
 export const Wrapper = styled.div`
-  background-color: white;
-  width: 25%;
-  padding: 20px;
-  ${mobile({ width: "75%" })}
+  display: flex;
+  flex-direction: row;
+  height: 90%;
 `;
 
+export const WrapperRight = styled.div`
+  width: 50%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  ${mobile({ width: "100%" })}
+`;
+
+export const FormWrapper = styled.div`
+  width: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  padding: 20px;
+  margin: 20px;
+  ${mobile({ width: "100%" })}
+`;
+
+export const WrapperLeft = styled.div`
+  width: 50%;
+  padding: 20px;
+  ${mobile({ display: "none" })}
+`;
 export const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;
@@ -35,6 +57,7 @@ export const Input = styled.input`
   min-width: 40%;
   margin: 20px 10px 10px 0px;
   padding: 10px;
+  background-color: inherit;
 `;
 export const Agreement = styled.span`
   font-size: 12px;

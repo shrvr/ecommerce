@@ -2,8 +2,9 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 
 export const Container = styled.div`
-  height: 60px;
-  ${mobile({ height: "50px" })}
+  height: 10%;
+  width: 100%;
+  /* ${mobile({ height: "20%" })} */
 `;
 
 export const Wrapper = styled.div`
@@ -21,12 +22,6 @@ export const Left = styled.div`
   align-items: center;
 `;
 
-export const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
-`;
-
 export const SearchContainer = styled.div`
   border: 0.5px solid lightgray;
   display: flex;
@@ -38,7 +33,8 @@ export const SearchContainer = styled.div`
 
 export const Input = styled.input`
   border: none;
-  ${mobile({ width: "50px" })}
+  width: 100%;
+  ${mobile({ width: "30px", fontSize: "60%" })}
 `;
 
 export const Center = styled.div`
@@ -46,6 +42,8 @@ export const Center = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 0;
+  ${mobile({ fontSize: "100%" })}
 `;
 
 export const Right = styled.div`
@@ -53,12 +51,12 @@ export const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${mobile({ justifyContent: "center", flex: 2 })}
 `;
 
 export const MenuItem = styled.div`
   font-size: 14px;
   cursor: pointer;
-  margin-left: 25px;
-  ${mobile({ fontSize: "9px", marginLeft: "5px" })}
+  margin-left: 5%;
+
+  ${mobile({ fontSize: "5px", marginLeft: "15%", marginRight: "10%" })}
 `;

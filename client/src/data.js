@@ -1,25 +1,21 @@
+export const loginImage =
+  "https://drive.google.com/uc?id=1BWCaNkAXRgApWho5VLMTfJaC5losOfhp";
+
 export const sliderItems = [
   {
     id: 1,
-    img: "https://drive.google.com/uc?id=1PAOyEf8XiFvvf2TJdsfPBMByO_ZoS__E",
-    title: "SUMMER SALE",
+    img: "https://drive.google.com/uc?id=1JYVcEwCGwDfMkivusQKqzQ-cfkqkL5Sv",
+    title: "WOMEN'S FASHION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
 
-    bg: "f7f7f7",
+    bg: "f7d9e5",
   },
   {
     id: 2,
-    img: "https://drive.google.com/uc?id=1imU9VwqBzjpSjzvYHoTkWpXMiWMr2qoc",
-    title: "AUTUMN COLLECTION",
+    img: "https://drive.google.com/uc?id=1tKMt7PZ5nTssqAtaKfE84wHiIZEb-Qdo",
+    title: "MAN'S FASHION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fcf1ed",
-  },
-  {
-    id: 3,
-    img: "https://drive.google.com/uc?id=1iHQB-WVLJ7VFEzyHQQbaIGlGb-kevzKY",
-    title: "LOUNGEWEAR LOVE",
-    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fbf0f4",
+    bg: "ebfaff",
   },
 ];
 

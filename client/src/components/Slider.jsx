@@ -20,9 +20,9 @@ const Slider = () => {
   const [slideIndex, setslideIndex] = useState(0);
   const handleClick = (direction) => {
     if (direction === "left") {
-      setslideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
+      setslideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1);
     } else {
-      setslideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
+      setslideIndex(slideIndex < sliderItems.length - 1 ? slideIndex + 1 : 0);
     }
   };
   return (
@@ -39,7 +39,9 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <NewLink to="/products/">
+              <NewLink
+                to={slideIndex === 0 ? "/products/women" : "/products/man"}
+              >
                 <Button>SHOP NOW</Button>
               </NewLink>
             </InfoContainer>
