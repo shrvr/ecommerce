@@ -4,7 +4,8 @@ import { mobile } from "../responsive";
 const Container = styled.div`
   display: flex;
   font-weight: bold;
-  ${mobile({ fontSize: "9px" })}
+  font-size: 90%;
+  ${mobile({ fontSize: "60%" })}
 `;
 const Left = styled.h1`
   margin: 0;

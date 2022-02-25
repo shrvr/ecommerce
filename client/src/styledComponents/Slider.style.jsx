@@ -1,18 +1,22 @@
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile, tablet } from "../responsive";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   position: relative;
   overflow: hidden;
-  ${mobile({ display: "none" })}
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+  ${mobile({ height: "40vh" })}
+  ${tablet({ height: "50vh" })}
 `;
 
 export const Arrow = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 5%;
+  height: 10%;
   background-color: #fff7f7;
   border-radius: 50%;
   display: flex;
@@ -31,7 +35,10 @@ export const Arrow = styled.div`
 
 export const Wrapper = styled.div`
   height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: row;
   transition: all 1.5s ease;
   transform: translateX(${(props) => props.slideIndex * -100}vw);
 `;
@@ -39,36 +46,50 @@ export const Wrapper = styled.div`
 export const Slide = styled.div`
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
   display: flex;
-  align-items: center;
+  flex-direction: row;
   background-color: #${(props) => props.bg};
 `;
 
 export const ImgContainer = styled.div`
-  height: 100%;
-  flex: 1;
+  width: 50%;
+  margin-left: 10%;
+  display: flex;
 `;
 export const InfoContainer = styled.div`
-  flex: 1;
-  padding: 50px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5%;
+  margin-right: 10%;
+  ${mobile({ paddingTop: "6%", marginLeft: "5%" })};
 `;
 
 export const Title = styled.h1`
-  font-size: 70px;
+  font-size: 400%;
+  ${mobile({ fontSize: "100%" })};
+  ${tablet({ fontSize: "200%" })};
 `;
 export const Desc = styled.p`
-  margin: 50px 0px;
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 150%;
+  font-weight: 500%;
   letter-spacing: 3px;
+  ${mobile({ fontSize: "70%" })};
+  ${tablet({ fontSize: "100%" })};
 `;
 export const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
+  padding: 2%;
+  font-size: 130%;
   background-color: transparent;
   cursor: pointer;
+  ${mobile({ fontSize: "70%" })};
+  ${tablet({ fontSize: "90%" })};
 `;
 
 export const Image = styled.img`
   height: 80%;
+  ${mobile({ height: "40%" })};
+  ${tablet({ height: "50%" })}
 `;

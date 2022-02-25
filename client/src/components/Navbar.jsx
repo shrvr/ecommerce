@@ -3,7 +3,6 @@ import {
   Container,
   Wrapper,
   Left,
-  Language,
   SearchContainer,
   Input,
   Center,
@@ -13,6 +12,8 @@ import {
 import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
+import MenuIcon from "@mui/icons-material/Menu";
 import MainLogo from "./MainLogo";
 import { useDispatch, useSelector } from "react-redux";
 import NewLink from "./NewLink";
@@ -42,7 +43,6 @@ const Navbar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <Language>EN</Language>
           <SearchContainer>
             <Input placeholder="Search" />
             <SearchIcon style={{ color: "gray", fontSize: 16 }} />
@@ -56,9 +56,6 @@ const Navbar = () => {
         </Center>
 
         <Right>
-          <MenuItem>WELCOME, {firstName.toUpperCase()}</MenuItem>
-          <MenuItem onClick={handleLogout}>LOGOUT</MenuItem>
-          <MenuItem>WISHLIST</MenuItem>
           <NewLink to="/cart">
             <MenuItem>
               <Badge badgeContent={quantity} color="primary">
@@ -66,6 +63,10 @@ const Navbar = () => {
               </Badge>
             </MenuItem>
           </NewLink>
+          {/* <MenuItem>WELCOME, {firstName.toUpperCase()}</MenuItem> */}
+          <MenuItem onClick={handleLogout}>
+            <PowerSettingsNewIcon />
+          </MenuItem>
         </Right>
       </Wrapper>
     </Container>

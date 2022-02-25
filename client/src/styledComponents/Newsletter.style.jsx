@@ -3,6 +3,7 @@ import { mobile } from "../responsive";
 
 export const Container = styled.div`
   height: 60vh;
+  width: 100%;
   background-color: #fcf5f5;
   display: flex;
   flex-direction: column;
@@ -10,7 +11,7 @@ export const Container = styled.div`
   align-items: center;
 `;
 export const Title = styled.h1`
-  font-size: 72px;
+  font-size: 350%;
   margin-bottom: 20px;
 `;
 export const Desc = styled.div`
