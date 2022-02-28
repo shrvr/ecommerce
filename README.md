@@ -2,7 +2,7 @@
 Fashion_Point is an Ecommerce Web App developed as a part of my personal learning. It demonstrates an online website to buy apparels for man and women.
 
 #### Home Screen:
-<img src="https://drive.google.com/uc?id=17vEdIoWGhUcZJHfqp5ZPmVy0sq1OlsM0" alt="alt text" width="100%"/>
+<img src="https://drive.google.com/uc?id=17vEdIoWGhUcZJHfqp5ZPmVy0sq1OlsM0" alt="alt text" width="69%"/> <img src="https://drive.google.com/uc?id=16mshD-6AIae8BIE6IisiArnVLDVVVDuB" alt="alt text" width="30%"/> 
 
 #### Products as per Category:
 <img src="https://drive.google.com/uc?id=1kRTEPxK1o0APhWNdj8zIN837tofyGG05" alt="alt text" width="100%"/>
