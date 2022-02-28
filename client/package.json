@@ -1,5 +1,6 @@
 {
   "name": "ecommerce-frontend",
+  "homepage": "https://fashion-point.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
