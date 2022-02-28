@@ -15,3 +15,9 @@ Fashion_Point is an Ecommerce Web App developed as a part of my personal learnin
 
 #### Payment Page:
 <img src="https://drive.google.com/uc?id=17PSumJUKDt1F2fxizM45DZ318vJY2vTr" alt="alt text" width="100%"/>
+
+#### Login Page:
+<img src="https://drive.google.com/uc?id=1fGjuZBcfqbWTAB0XFZ0UcAU46TNFddik" alt="alt text" width="100%"/>
+
+#### Register Page:
+<img src="https://drive.google.com/uc?id=1Ge6L-3W-zCOHwl4C6giSq6gekjK5fXfp" alt="alt text" width="100%"/>
