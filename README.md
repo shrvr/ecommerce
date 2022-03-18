@@ -1,5 +1,5 @@
 # Fashion_Point - An Ecommerce Web App
-Fashion_Point is an Ecommerce Web App developed as a part of my personal learning. It demonstrates an online website to buy apparels for man and women.
+Fashion_Point is an Ecommerce Web App developed as a part of my personal learning. It demonstrates an online platform to buy apparels for man and women.
 
 #### Home Screen:
 <img src="https://drive.google.com/uc?id=1iFQ7x42GxvjelwnLGQrGlcCBdP6mD31F" alt="click here to see" width="79%"  height="100%"/>
