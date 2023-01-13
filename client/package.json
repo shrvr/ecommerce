@@ -1,8 +1,7 @@
 {
   "name": "ecommerce-frontend",
-  "homepage": "https://fashion-point.herokuapp.com/",
+  "homepage": "https://fashion-point.onrender.com/",
   "version": "0.1.0",
-  "homepage": "https://fashion-point.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
