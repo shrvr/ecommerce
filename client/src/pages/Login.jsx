@@ -32,15 +32,25 @@ export const Error = styled.span`
   color: red;
 `;
 
+export const Disclaimer = styled.span`
+  margin-top: 10px;
+  font-size: 14px;
+  border: 1px solid;
+  border-color: black;
+  padding: 5px;
+`;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const [err, setError] = useState(false);
   const { isFetching, error } = useSelector((state) => state.user);
 
   const handleClick = (e) => {
     e.preventDefault();
     login(dispatch, { username, password });
+    setError(error);
   };
 
   return (
@@ -63,7 +73,20 @@ const Login = () => {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {error && <Error>Something went wrong !!</Error>}
+
+              {err &&  <Error>Something went wrong !!</Error>}
+
+              <Disclaimer>
+                <i>
+                  <b>Disclaimer:</b> This website is for Educational purpose
+                  only, not for business.
+                  <br /><br/>
+                  <b>To test the website</b>, use the following combination:
+                  <br />
+                  username:<b>shurvir</b> <br />
+                  password:<b>12345678</b>
+                </i>
+              </Disclaimer>
               <Button onClick={handleClick} disabled={isFetching}>
                 LOGIN
               </Button>
